@@ -13,11 +13,15 @@ if (workbox) {
   },
   {
     "url": "index.html",
-    "revision": "00759b9887b1b1e8844ea3341cc370fa"
+    "revision": "5aad3118552e07c70cd95efa2d79892e"
   },
   {
     "url": "js/app.js",
-    "revision": "4357dbdbcc80dcfbe1f8198ac0313009"
+    "revision": "ddffd4aae1003f3a240523413e120651"
+  },
+  {
+    "url": "js/client.js",
+    "revision": "1420951f0010a350c01becb01e308bf8"
   },
   {
     "url": "js/materialize.min.js",
@@ -65,15 +69,15 @@ if (workbox) {
   },
   {
     "url": "pages/offline.html",
-    "revision": "0bb22be809fd8542b7e5370298302eb0"
+    "revision": "45286bb4fe78c537cebe9dba34a9931d"
   },
   {
     "url": "pages/404.html",
-    "revision": "bef2f433966e550f0fbbfe924ffdd5ed"
+    "revision": "57e7a58fe8c94126b11cd0bf24391f77"
   },
   {
     "url": "pages/fallback.html",
-    "revision": "270bb0dca3e25113b8948c4a87dc894f"
+    "revision": "a78976ac2e2153b6372b2d2a44d00244"
   }
 ]);
 
@@ -112,6 +116,20 @@ if (workbox) {
             ],
         }),
     );
+    //This method will listen to the push received from the server.
+    self.addEventListener("push", e => {
+        const data = e.data.json();
+        console.log('[Service Worker] Push Received.');
+        console.log('[Service Worker] Push had this data: "${event.data.text()}"');
+
+        const title = data.title;
+        const options = {
+            body: 'Notification from NodeJs server',
+            icon: 'img/icons/icon-192x192.png',
+            badge: 'img/icons/icon-512x512.png'
+        };
+        self.registration.showNotification(title, options);
+    });
 
 
 } else {
