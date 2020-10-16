@@ -1,0 +1,30 @@
+{
+  "name": "complete-pwa-using-workbox-notification-fallout",
+  "version": "1.0.0",
+  "description": "This project demo you complete pwa using workbox with notification and fallout strategies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copy": "copyfiles -u 1 src/**/**/* src/**/* src/* build",
+    "build": "npm run copy && workbox injectManifest workbox-config.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shdhumale/complete-pwa-using-workbox-notification-fallout.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shdhumale/complete-pwa-using-workbox-notification-fallout/issues"
+  },
+  "homepage": "https://github.com/shdhumale/complete-pwa-using-workbox-notification-fallout#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "workbox-cli": "^3.5.0"
+  }
+}
